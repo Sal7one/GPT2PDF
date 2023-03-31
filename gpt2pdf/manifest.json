@@ -1,0 +1,40 @@
+{
+    "name": "GPT2PDF",
+    "version": "1.0.0",
+    "description": "Convert GPT conversations to PDF",
+    "manifest_version": 3,
+    "author": "Akshay Hebbar",
+    "icons": {
+        "16": "assets/icon.png",
+        "48": "assets/icon.png",
+        "128": "assets/icon.png"
+    },
+    "action":{
+        "name": "GPT2PDF",
+        "default_icon": {
+            "16": "assets/icon.png",
+            "48": "assets/icon.png",
+            "128": "assets/icon.png"
+          },
+        "default_popup": "index.html",
+        "default_title": "GPT2PDF"
+    },
+    "web_accessible_resources": [{
+        "resources": ["assets/*"],
+        "matches": ["*://*/*"]
+      }],
+    "permissions": [
+        "tabs"   ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "externally_connectable": {
+        "matches": ["*://chat.openai.com//*"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://chat.openai.com/*"],
+            "js": ["contentscript.js"]
+        }
+    ]  
+}
