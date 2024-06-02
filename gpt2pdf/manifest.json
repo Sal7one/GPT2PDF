@@ -1,6 +1,6 @@
 {
     "name": "GPT2PDF",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Convert GPT conversations to PDF",
     "manifest_version": 3,
     "author": "Akshay Hebbar",
@@ -29,11 +29,11 @@
         "service_worker": "background.js"
     },
     "externally_connectable": {
-        "matches": ["*://chat.openai.com//*"]
+        "matches": ["*://chat.openai.com//*", "*://chatgpt.com//*"]
     },
     "content_scripts": [
         {
-            "matches": ["https://chat.openai.com/*"],
+            "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
             "js": ["contentscript.js"]
         }
     ]  
